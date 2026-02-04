@@ -1,0 +1,184 @@
+{
+    "brand_name": "SNAPLY",
+    "tagline": "BESEEN.",
+    "intro_text": "At SNAPLY, we craft customized digital marketing strategies that amplify your brand's presence. Our expert team specializes in Google Ads, Facebook advertising, SEO, and social media management, ensuring you connect with your audience effectively. Let us help you stand out in the digital landscape and achieve lasting success.",
+    "cta_buttons": [
+        "Start Growing With US!"
+    ],
+    "features_section": {
+        "title": "Discover SNAPLY Features",
+        "description": "Explore our key features designed to enhance your digital marketing efforts and help your business thrive.",
+        "categories": {
+            "SEO_PPC": [
+                "On-Page Optimization",
+                "Keyword Research",
+                "Content Strategy",
+                "Continuous Optimization",
+                "Performance Tracking"
+            ],
+            "Campaign_Management": [
+                "Campaign Strategy Development",
+                "Multi-Channel Campaign Execution",
+                "Budget Management",
+                "Audience Targeting & Segmentation",
+                "Post-Campaign Analysis",
+                "Feedback Loop and Iteration"
+            ],
+            "SMM": [
+                "Account Monitoring and Management",
+                "Monthly Content Calendar",
+                "Hashtag and Trend Research",
+                "Platform-Specific Strategy",
+                "Community Engagement"
+            ],
+            "Google_Ads": [
+                "Campaign Development",
+                "Dynamic Search Ads",
+                "CTR & ROI",
+                "Geo-Targeting",
+                "Conversion Tracking"
+            ],
+            "Organic_Marketing": [
+                "Organic Interaction With Your Target Group",
+                "Content Marketing",
+                "More Engagement",
+                "Social Media Optimization",
+                "More Followers"
+            ]
+        }
+    },
+    "process_section": {
+        "title": "The SNAPLY Approach",
+        "description": "Want to see how we deliver? Here's our process in a nutshell.",
+        "steps": [
+            {
+                "id": 1,
+                "name": "Discovery",
+                "description": "We begin with an introductory call to understand your unique business needs. During this meeting, we discuss your goals, challenges, and target audience. Our team gathers insights to create a comprehensive understanding of your brand, setting the stage for a successful partnership."
+            },
+            {
+                "id": 2,
+                "name": "Strategy",
+                "description": "After the discovery phase, we craft a customized digital marketing strategy tailored to your objectives. This includes selecting the right channels, defining key performance indicators (KPIs), and establishing a timeline. We present this strategy to you for feedback and approval, ensuring alignment with your vision."
+            },
+            {
+                "id": 3,
+                "name": "Execution",
+                "description": "Once the strategy is approved, our expert team gets to work. We launch targeted campaigns across platforms like Google Ads and social media and optimize your website for SEO. Throughout this phase, we maintain open communication, providing updates and adjustments based on real-time data."
+            },
+            {
+                "id": 4,
+                "name": "Analysis",
+                "description": "After the campaigns are live, we continuously monitor their performance. We analyze key metrics to measure success against the defined KPIs. At the end of the campaign, we provide a detailed report outlining results, insights, and recommendations for future strategies. This ensures ongoing growth and improvement for your brand."
+            }
+        ]
+    },
+    "pricing_section": {
+        "title": "Your SNAPLY Plan",
+        "description": "Our diverse plans are designed to ensure you receive the dedicated support essential for achieving your goals.",
+        "monthly_plans": [
+            {
+                "name": "STAND OUT",
+                "price": "35,000/month",
+                "who_it_is_for": "Small businesses or startups starting their digital marketing journey.",
+                "includes": [
+                    "Google Ads Management: Setup and management (up to 2 campaigns)",
+                    "SEO Audit: Initial website analysis with improvement tips",
+                    "Social Media Management: Posting and engagement for 1 platform (client provides content)",
+                    "Monthly Performance Report: Overview of campaign results",
+                    "General Support: Access to our support team for campaign updates and assistance during business hours."
+                ]
+            },
+            {
+                "name": "BE HEARD",
+                "price": "75,000/month",
+                "who_it_is_for": "Mid-sized businesses aiming to enhance online visibility.",
+                "includes": [
+                    "Google Ads Management: Up to 5 campaigns, including A/B testing",
+                    "Facebook Advertising Strategy: Campaign setup and targeted audience strategy (no content creation)",
+                    "SEO Plan: On-page optimization guidance and keyword research",
+                    "Social Media Management: Posting and engagement for up to 2 platforms (client provides content)",
+                    "Bi-weekly Reports: Detailed progress and insights",
+                    "Support: Shared manager for overseeing campaigns and maintaining communication."
+                ]
+            },
+            {
+                "name": "BE SEEN",
+                "price": "1,55,000/month",
+                "who_it_is_for": "Larger businesses focusing on significant growth.",
+                "includes": [
+                    "Comprehensive Google Ads Management: Unlimited campaigns and detailed budget optimization",
+                    "Facebook Ad Strategy: Retargeting and audience segmentation (no ad creation)",
+                    "Advanced SEO Strategy: Full keyword tracking, competitive analysis, and monthly reporting",
+                    "Social Media Management: Posting and engagement for up to 3 platforms (client provides content)",
+                    "Weekly Analytics Review: Ongoing adjustments and performance insights",
+                    "Support: Full-time dedicated account manager for comprehensive support."
+                ]
+            },
+            {
+                "name": "MAKE YOUR MARK",
+                "price": "Custom quote",
+                "who_it_is_for": "Businesses with unique marketing needs.",
+                "includes": [
+                    "Flexible combinations of services like SEO, Google Ads, and strategic social media management.",
+                    "Regular consulting and personalized strategy sessions.",
+                    "Dedicated account manager as a standard."
+                ]
+            }
+        ],
+        "one_time_services": [
+            { "service": "Initial Strategy Consultation", "price": "5,000" },
+            { "service": "SEO Site Audit", "price": "24,600" },
+            { "service": "Ad Campaign Audit", "price": "16,500" },
+            { "service": "Social Media Profile Optimization", "price": "10,000" },
+            { "service": "Website Speed Optimization", "price": "20,000" },
+            { "service": "Competitor Analysis Report", "price": "12,000" }
+        ]
+    },
+    "about_section": {
+        "title": "SNAPLY: Who We Are",
+        "about_snaply": "At Snaply, we believe that impactful marketing isn't just for big budgets-it's for every business with big ideas. Whether you're the heart of your neighborhood, like a restaurant, pub, or local shop, or you're an ambitious brand on the rise, Snaply is here to help you grow.",
+        "promise": "Snaply's approach is simple: we make marketing that works for everyone. No confusing jargon, no unnecessary costs-just powerful strategies like social media management, SEO, and targeted ads that get results.",
+        "why_snaply": "Snaply is more than a service; we're your partner in making things happen. We're here to help you reach your people, build a loyal following, and bring your vision to life. With Snaply, marketing is no longer something 'extra'-it's your secret to building a brand that matters."
+    },
+    "faq_section": {
+        "title": "SNAPLY Answers to Your Most Common Questions",
+        "questions": [
+            {
+                "q": "Do I need to give Snaply access to my social media accounts and email passwords?",
+                "a": "Yes, to effectively manage your digital marketing strategies, Snaply will require access to your social media accounts. However, we prioritize your security and privacy. We recommend you to use 2-factor verification for all your accounts for more security. Please do not share your email passwords or any sensitive account information to anyone other than us."
+            },
+            {
+                "q": "Does Snaply create posts or videos for social media?",
+                "a": "Currently, Snaply does not create posts or videos for clients. We manage posting schedules, engage with the audience, and handle overall social media strategy, but clients provide the content."
+            },
+            {
+                "q": "Do I get a dedicated account manager with my plan?",
+                "a": "Standout Plan: Includes general support but does not come with a dedicated manager. BeHeard Plan: Comes with a shared account manager to assist with your campaign needs. BeSeen Plan and Make Your Mark Plan: Both include a dedicated account manager who provides personalized support, strategic oversight, and direct communication."
+            },
+            {
+                "q": "Do I need to sign a long-term contract?",
+                "a": "We offer both long term and short term agreements. Our standard contracts typically require a commitment, but we also have month-to-month options available."
+            },
+            {
+                "q": "I run a small shop. Can Snaply help me, or do you only work with large businesses?",
+                "a": "Absolutely! Snaply caters to businesses of all sizes, from shops, clubs, and diners to larger enterprises. Plans are designed to fit your unique needs."
+            }
+        ]
+    },
+    "social_links": [
+        { "platform": "Instagram", "url": "#", "icon": "bi-instagram" },
+        { "platform": "Facebook", "url": "#", "icon": "bi-facebook" },
+        { "platform": "X", "url": "#", "icon": "bi-twitter-x" },
+        { "platform": "LinkedIn", "url": "#", "icon": "bi-linkedin" }
+    ],
+    "footer_section": {
+        "text": "© 2026 SNAPLY. All rights reserved.",
+        "address": "123 Premium Tower, Fintech District, New York, NY 10001",
+        "email": "growth@snaply.com",
+        "links": [
+            { "text": "Privacy Policy", "url": "#" },
+            { "text": "Terms of Service", "url": "#" }
+        ]
+    }
+}

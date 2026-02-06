@@ -212,8 +212,8 @@ nav.capsule {
 }
 
 .nav-links a:hover {
-    color: white;
-    text-shadow: 0 0 10px rgba(255,255,255,0.5);
+    color: var(--text-primary); /* Use text-primary or accent for better visibility */
+    text-shadow: 0 0 10px rgba(128, 0, 32, 0.3);
 }
 
 .theme-btn {
@@ -275,6 +275,15 @@ header#hero {
     z-index: 1;
     max-width: 900px;
     position: relative;
+}
+
+#hero-dynamic-text {
+    display: inline-block;
+    color: var(--accent-glow);
+    -webkit-text-fill-color: var(--accent-glow); /* Override parent transparent fill */
+    width: 2.2em; /* Fixed width to accommodate 'HEARD' */
+    text-align: left;
+    white-space: nowrap;
 }
 
 .accent-text {

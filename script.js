@@ -46,8 +46,40 @@ async function fetchData() {
         document.getElementById('nav-logo').textContent = data.brand_name;
         
         // 2. Hero
+        // 2. Hero
         document.getElementById('hero-tagline').textContent = data.tagline;
-        document.getElementById('hero-headline').textContent = data.brand_name;
+        
+        // --- Hero Animation (Be SEEN / Be HEARD) ---
+        const heroHeadline = document.getElementById('hero-headline');
+        // Initial State
+        heroHeadline.innerHTML = `BE <span id="hero-dynamic-text">SEEN</span>`;
+        
+        // Animation Loop
+        const dynamicText = document.getElementById('hero-dynamic-text');
+        const words = ["SEEN", "HEARD"];
+        let wordIndex = 0;
+        
+        // Clear any existing interval to prevent duplicates on potential re-runs
+        if (window.heroInterval) clearInterval(window.heroInterval);
+        
+        window.heroInterval = setInterval(() => {
+            wordIndex = (wordIndex + 1) % words.length;
+            
+            // Simple GSAP Fade/Slide effect
+            gsap.to(dynamicText, {
+                opacity: 0,
+                y: -20,
+                duration: 0.5,
+                onComplete: () => {
+                    dynamicText.textContent = words[wordIndex];
+                    gsap.fromTo(dynamicText, 
+                        { opacity: 0, y: 20 }, 
+                        { opacity: 1, y: 0, duration: 0.5 }
+                    );
+                }
+            });
+        }, 2500); // Change every 2.5 seconds
+
         document.getElementById('hero-intro').textContent = data.intro_text;
 
         const ctaContainer = document.getElementById('hero-cta-container');

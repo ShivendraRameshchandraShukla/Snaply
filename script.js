@@ -3,7 +3,37 @@ document.addEventListener('DOMContentLoaded', () => {
     initThreeJS();
     initScrollAnimation();
     initFormLogic();
+    initTheme();
 });
+
+// --- Theme Logic ---
+function initTheme() {
+    const toggleBtn = document.getElementById('theme-toggle');
+    const icon = toggleBtn.querySelector('i');
+    const body = document.body;
+    
+    // Check saved preference
+    const savedTheme = localStorage.getItem('theme');
+    
+    if (savedTheme === 'light') {
+        body.classList.add('light-mode');
+        icon.classList.replace('bi-sun', 'bi-moon');
+    }
+
+    toggleBtn.addEventListener('click', () => {
+        body.classList.toggle('light-mode');
+        const isLight = body.classList.contains('light-mode');
+        
+        // Update Icon
+        if (isLight) {
+            icon.classList.replace('bi-sun', 'bi-moon');
+            localStorage.setItem('theme', 'light');
+        } else {
+            icon.classList.replace('bi-moon', 'bi-sun');
+            localStorage.setItem('theme', 'dark');
+        }
+    });
+}
 
 // --- Data Fetching ---
 async function fetchData() {
@@ -153,7 +183,7 @@ async function fetchData() {
             const socialHtml = data.social_links.map(l => `<a href="${l.url}" target="_blank"><i class="bi ${l.icon}"></i></a>`).join('');
 
             footerContent.innerHTML = `
-                <h2 style="font-size:2rem; color:white; margin-bottom:10px;">${data.brand_name}</h2>
+                <h2 style="font-size:2rem; margin-bottom:10px;">${data.brand_name}</h2>
                 <div class="footer-socials">${socialHtml}</div>
                 <p>${data.footer_section.address}</p>
                 <p>Email: ${data.footer_section.email}</p>

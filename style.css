@@ -1,4 +1,5 @@
 :root {
+    /* --- Dark Mode (Default) --- */
     --bg-color: #050505;
     --text-primary: #ffffff;
     --text-secondary: #a0a0a0;
@@ -6,8 +7,54 @@
     --accent-glow: #a01a31;
     --glass-bg: rgba(255, 255, 255, 0.03);
     --glass-border: rgba(255, 255, 255, 0.08);
+    --nav-bg: rgba(5, 5, 5, 0.85);
+    
+    --hero-bg: radial-gradient(circle at 50% 50%, #150005 0%, #050505 70%);
+    --orb-2-color: #0a0a2a; /* Deep Violet/Blue */
+    
+    --card-bg: linear-gradient(180deg, rgba(20, 20, 20, 0.6) 0%, rgba(10, 10, 10, 0.8) 100%);
+    --card-hover-bg: linear-gradient(180deg, rgba(30, 10, 15, 0.7) 0%, rgba(10, 10, 10, 0.9) 100%);
+    
+    --heading-gradient: linear-gradient(180deg, #ffffff 0%, #a0a0a0 100%);
+    --section-heading-gradient: linear-gradient(180deg, #fff, #666);
+    
+    --input-bg: rgba(255, 255, 255, 0.02);
+    --input-border: rgba(255, 255, 255, 0.1);
+    --input-text: #ffffff;
+    --input-focus-bg: rgba(128, 0, 32, 0.03);
+    
+    --footer-bg: #000;
+    
     --font-heading: 'Outfit', sans-serif;
     --font-body: 'Inter', sans-serif;
+}
+
+body.light-mode {
+    /* --- Light Mode --- */
+    --bg-color: #f8f9fa; /* Lighter white/gray */
+    --text-primary: #1a1a1a;
+    --text-secondary: #555555;
+    --accent-color: #a01a31; 
+    --accent-glow: #c02a45;
+    --glass-bg: rgba(255, 255, 255, 0.6); /* More opaque for light mode glass */
+    --glass-border: rgba(0, 0, 0, 0.08);
+    --nav-bg: rgba(255, 255, 255, 0.85);
+    
+    --hero-bg: radial-gradient(circle at 50% 50%, #fff0f5 0%, #f8f9fa 70%);
+    --orb-2-color: #e0e0ff; /* Light Violet/Blue */
+    
+    --card-bg: linear-gradient(180deg, #ffffff 0%, #f0f0f0 100%);
+    --card-hover-bg: linear-gradient(180deg, #fff5f7 0%, #ffffff 100%);
+    
+    --heading-gradient: linear-gradient(180deg, #1a1a1a 0%, #555555 100%);
+    --section-heading-gradient: linear-gradient(180deg, #1a1a1a, #666);
+    
+    --input-bg: rgba(0, 0, 0, 0.04);
+    --input-border: rgba(0, 0, 0, 0.1);
+    --input-text: #1a1a1a;
+    --input-focus-bg: rgba(160, 26, 49, 0.05);
+    
+    --footer-bg: #e9ecef;
 }
 
 * {
@@ -24,6 +71,7 @@ body {
     overflow-x: hidden;
     line-height: 1.6;
     position: relative;
+    transition: background-color 0.5s ease, color 0.5s ease;
 }
 
 /* --- Ambient Aurora Background --- */
@@ -35,7 +83,7 @@ body {
     height: 100vh;
     z-index: -2;
     overflow: hidden;
-    background: #050505; /* Deep darkness base */
+    background: var(--bg-color); /* Deep darkness base */
     pointer-events: none;
 }
 
@@ -61,7 +109,7 @@ body {
     right: -10%;
     width: 70vw;
     height: 70vw;
-    background: radial-gradient(circle, #0a0a2a, transparent 70%); /* Deep Violet/Blue */
+    background: var(--orb-2-color); /* Deep Violet/Blue */
     animation-duration: 30s;
     animation-direction: alternate-reverse;
 }
@@ -129,7 +177,7 @@ nav.capsule {
     width: 90%; 
     max-width: 1000px;
     border-radius: 50px;
-    background: rgba(5, 5, 5, 0.85); 
+    background: var(--nav-bg); 
     /* No border */
     padding: 10px 40px;
     box-shadow: 0 10px 40px rgba(0,0,0,0.6);
@@ -168,6 +216,29 @@ nav.capsule {
     text-shadow: 0 0 10px rgba(255,255,255,0.5);
 }
 
+.theme-btn {
+    background: transparent;
+    border: 1px solid var(--glass-border);
+    color: var(--text-primary);
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-left: 20px;
+}
+
+.theme-btn:hover {
+    background: var(--glass-bg);
+    border-color: var(--accent-color);
+    transform: rotate(15deg);
+    color: var(--accent-glow);
+}
+
 /* --- Hero Section --- */
 header#hero {
     min-height: 100vh;
@@ -196,7 +267,7 @@ header#hero {
     left: 0;
     width: 100%;
     height: 100%;
-    background: radial-gradient(circle at 50% 50%, #150005 0%, #050505 70%);
+    background: var(--hero-bg);
     z-index: -1;
 }
 
@@ -221,8 +292,9 @@ header#hero {
     font-size: 5rem;
     line-height: 1.1;
     margin-bottom: 30px;
-    background: linear-gradient(180deg, #ffffff 0%, #a0a0a0 100%);
+    background: var(--heading-gradient);
     -webkit-background-clip: text;
+    background-clip: text;
     -webkit-text-fill-color: transparent;
     filter: drop-shadow(0 0 30px rgba(0,0,0,0.5));
 }
@@ -318,8 +390,9 @@ section h2 {
     font-size: 3.5rem;
     margin-bottom: 20px;
     text-align: center;
-    background: linear-gradient(180deg, #fff, #666);
+    background: var(--section-heading-gradient);
     -webkit-background-clip: text;
+    background-clip: text;
     -webkit-text-fill-color: transparent;
 }
 
@@ -352,7 +425,7 @@ section h2 {
 
 .feature-category:hover {
     transform: translateY(-10px) scale(1.02);
-    border-color: rgba(128, 0, 32, 0.5);
+    border-color: var(--glass-border);
     box-shadow: 0 20px 40px rgba(0,0,0,0.4);
     background: linear-gradient(145deg, rgba(255,255,255,0.05) 0%, rgba(255,255,255,0.02) 100%);
 }
@@ -445,7 +518,7 @@ section h2 {
     top: 5px;
     width: 20px;
     height: 20px;
-    background: #050505;
+    background: var(--bg-color);
     border: 3px solid var(--accent-color);
     border-radius: 50%;
     z-index: 2;
@@ -481,7 +554,7 @@ section h2 {
 }
 
 .pricing-card {
-    background: linear-gradient(180deg, rgba(20, 20, 20, 0.6) 0%, rgba(10, 10, 10, 0.8) 100%);
+    background: var(--card-bg);
     border: 1px solid var(--glass-border);
     padding: 40px 25px; /* Restored original padding */
     border-radius: 20px; /* Restored original radius */
@@ -496,7 +569,7 @@ section h2 {
     border-color: var(--accent-color);
     transform: translateY(-15px);
     box-shadow: 0 15px 50px rgba(0,0,0,0.6);
-    background: linear-gradient(180deg, rgba(30, 10, 15, 0.7) 0%, rgba(10, 10, 10, 0.9) 100%);
+    background: var(--card-hover-bg);
 }
 
 .pricing-card h3 {
@@ -618,7 +691,7 @@ section h2 {
     text-align: left;
     background: transparent;
     border: none;
-    color: white;
+    color: var(--text-primary);
     font-weight: 600;
     font-size: 1.1rem;
     cursor: pointer;
@@ -649,7 +722,7 @@ section h2 {
 .contact-form {
     max-width: 800px; /* Wider for 2-col layout */
     margin: 0 auto;
-    background: rgba(10, 10, 10, 0.6);
+    background: var(--nav-bg);
     padding: 60px;
     border-radius: 24px;
     border: 1px solid rgba(255, 255, 255, 0.08); /* Subtle glass border */
@@ -706,9 +779,9 @@ section h2 {
     width: 100%; 
     padding: 18px 20px;
     /* padding-top: 25px; Removed for cleaner look, label floats on top border or above */
-    background: rgba(255, 255, 255, 0.02); 
-    border: 1px solid rgba(255, 255, 255, 0.1); 
-    color: white; 
+    background: var(--input-bg); 
+    border: 1px solid var(--input-border); 
+    color: var(--input-text); 
     border-radius: 12px;
     font-size: 1rem;
     transition: all 0.3s;
@@ -718,7 +791,7 @@ section h2 {
 .form-group input:focus { 
     outline: none; 
     border-color: var(--accent-color); 
-    background: rgba(128, 0, 32, 0.03);
+    background: var(--input-focus-bg);
     box-shadow: 0 0 0 4px rgba(128, 0, 32, 0.1); /* Subtle ring */
 }
 
@@ -729,7 +802,7 @@ section h2 {
     left: 15px;
     font-size: 0.8rem;
     color: var(--accent-glow);
-    background: #050505; /* Matches body bg to hide border line behind label */
+    background: var(--bg-color); /* Matches body bg to hide border line behind label */
     padding: 0 8px; /* Breathing room */
     font-weight: 600;
 }
@@ -767,7 +840,7 @@ section h2 {
 /* --- Footer --- */
 footer {
     padding: 80px 5% 40px;
-    background: #000;
+    background: var(--footer-bg);
     border-top: 1px solid var(--glass-border);
     margin-top: 50px;
     color: #666;

@@ -1,15 +1,15 @@
 {
-    "brand_name": "SNAPLY",
-    "tagline": "SNAPLY.",
-    "intro_text": "At SNAPLY, we craft customized digital marketing strategies that amplify your brand's presence. Our expert team specializes in Google Ads, Facebook advertising, SEO, and social media management, ensuring you connect with your audience effectively. Let us help you stand out in the digital landscape and achieve lasting success.",
+    "brand_name": "<span class='brand-font'>SNAPLY</span>",
+    "tagline": "<span class='brand-font'>SNAPLY</span>.",
+    "intro_text": "At <span class='brand-font'>SNAPLY</span>, we craft customized digital marketing strategies that amplify your brand's presence. Our expert team specializes in Google Ads, Facebook advertising, SEO, and social media management, ensuring you connect with your audience effectively. Let us help you stand out in the digital landscape and achieve lasting success.",
     "cta_buttons": [
         "Start Growing With US!"
     ],
     "features_section": {
-        "title": "Discover SNAPLY Features",
+        "title": "Discover <span class='brand-font'>SNAPLY</span> Features",
         "description": "Explore our key features designed to enhance your digital marketing efforts and help your business thrive.",
         "categories": {
-            "SEO_PPC": [
+            "SEO_&_PPC": [
                 "On-Page Optimization",
                 "Keyword Research",
                 "Content Strategy",
@@ -54,7 +54,7 @@
         }
     },
     "process_section": {
-        "title": "The SNAPLY Approach",
+        "title": "The <span class='brand-font'>SNAPLY</span> Approach",
         "description": "Want to see how we deliver? Here's our process in a nutshell.",
         "steps": [
             {
@@ -80,7 +80,7 @@
         ]
     },
     "pricing_section": {
-        "title": "Your SNAPLY Plan",
+        "title": "Your <span class='brand-font'>SNAPLY</span> Plan",
         "description": "Our diverse plans are designed to ensure you receive the dedicated support essential for achieving your goals.",
         "monthly_plans": [
             {
@@ -142,21 +142,21 @@
         ]
     },
     "about_section": {
-        "title": "SNAPLY: Who We Are",
-        "about_snaply": "At Snaply, we believe that impactful marketing isn't just for big budgets-it's for every business with big ideas. Whether you're the heart of your neighborhood, like a restaurant, pub, or local shop, or you're an ambitious brand on the rise, Snaply is here to help you grow.",
-        "promise": "Snaply's approach is simple: we make marketing that works for everyone. No confusing jargon, no unnecessary costs-just powerful strategies like social media management, SEO, and targeted ads that get results.",
-        "why_snaply": "Snaply is more than a service; we're your partner in making things happen. We're here to help you reach your people, build a loyal following, and bring your vision to life. With Snaply, marketing is no longer something 'extra'-it's your secret to building a brand that matters."
+        "title": "<span class='brand-font'>SNAPLY</span>: Who We Are",
+        "about_snaply": "At <span class='brand-font'>Snaply</span>, we believe that impactful marketing isn't just for big budgets-it's for every business with big ideas. Whether you're the heart of your neighborhood, like a restaurant, pub, or local shop, or you're an ambitious brand on the rise, <span class='brand-font'>Snaply</span> is here to help you grow.",
+        "promise": "<span class='brand-font'>Snaply</span>'s approach is simple: we make marketing that works for everyone. No confusing jargon, no unnecessary costs-just powerful strategies like social media management, SEO, and targeted ads that get results.",
+        "why_snaply": "<span class='brand-font'>Snaply</span> is more than a service; we're your partner in making things happen. We're here to help you reach your people, build a loyal following, and bring your vision to life. With <span class='brand-font'>Snaply</span>, marketing is no longer something 'extra'-it's your secret to building a brand that matters."
     },
     "faq_section": {
         "title": "SNAPLY Answers to Your Most Common Questions",
         "questions": [
             {
-                "q": "Do I need to give Snaply access to my social media accounts and email passwords?",
-                "a": "Yes, to effectively manage your digital marketing strategies, Snaply will require access to your social media accounts. However, we prioritize your security and privacy. We recommend you to use 2-factor verification for all your accounts for more security. Please do not share your email passwords or any sensitive account information to anyone other than us."
+                "q": "Do I need to give <span class='brand-font'>Snaply</span> access to my social media accounts and email passwords?",
+                "a": "Yes, to effectively manage your digital marketing strategies, <span class='brand-font'>Snaply</span> will require access to your social media accounts. However, we prioritize your security and privacy. We recommend you to use 2-factor verification for all your accounts for more security. Please do not share your email passwords or any sensitive account information to anyone other than us."
             },
             {
-                "q": "Does Snaply create posts or videos for social media?",
-                "a": "Currently, Snaply does not create posts or videos for clients. We manage posting schedules, engage with the audience, and handle overall social media strategy, but clients provide the content."
+                "q": "Does <span class='brand-font'>Snaply</span> create posts or videos for social media?",
+                "a": "Currently, <span class='brand-font'>Snaply</span> does not create posts or videos for clients. We manage posting schedules, engage with the audience, and handle overall social media strategy, but clients provide the content."
             },
             {
                 "q": "Do I get a dedicated account manager with my plan?",
@@ -167,8 +167,8 @@
                 "a": "We offer both long term and short term agreements. Our standard contracts typically require a commitment, but we also have month-to-month options available."
             },
             {
-                "q": "I run a small shop. Can Snaply help me, or do you only work with large businesses?",
-                "a": "Absolutely! Snaply caters to businesses of all sizes, from shops, clubs, and diners to larger enterprises. Plans are designed to fit your unique needs."
+                "q": "I run a small shop. Can <span class='brand-font'>Snaply</span> help me, or do you only work with large businesses?",
+                "a": "Absolutely! <span class='brand-font'>Snaply</span> caters to businesses of all sizes, from shops, clubs, and diners to larger enterprises. Plans are designed to fit your unique needs."
             }
         ]
     },
@@ -179,12 +179,13 @@
         { "platform": "LinkedIn", "url": "#", "icon": "bi-linkedin" }
     ],
     "footer_section": {
-        "text": "© 2026 SNAPLY. All rights reserved.",
+        "text": "© 2026 <span class='brand-font'>SNAPLY</span>. All rights reserved.",
         "address": "123 Premium Tower, Fintech District, New York, NY 10001",
         "email": "growth@snaply.com",
         "links": [
             { "text": "Privacy Policy", "url": "#" },
             { "text": "Terms of Service", "url": "#" }
-        ]
+        ],
+        "notes": "NOTES ON ALL SERVICES\n\nNo Content Creation: <span class='brand-font'>Snaply</span> focuses on strategic management and optimization of campaigns, not on producing the creative assets.\n\nPayment Terms\n\nService Fees: Payments are due at the start of each month.\n\nMinimum Contract: We offer a paid, one-month trial period at the standard rate for clients who want to experience our services. After the initial month, a 3-month contract is required for continued service to ensure the effectiveness of your digital marketing strategy.\n\nThese prices cover only <span class='brand-font'>Snaply</span>'s professional services for managing and optimizing digital campaigns. Clients are responsible for their ad spend, which is paid directly to platforms like Google and Facebook. Additionally, clients must provide the content for social media posts.\n\nThis pricing structure offers competitive rates while maintaining the quality of service that <span class='brand-font'>Snaply</span> provides. Adjustments can be made based on market feedback and competition.\n\nADDITIONAL TERMS AND CONDITION APPLY"
     }
 }

@@ -8,7 +8,7 @@
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Outfit:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,200..900;1,200..900&family=Cuprum:ital,wght@0,400..700;1,400..700&family=Dosis:wght@200..800&family=Inter:wght@300;400;600&family=Outfit:wght@400;700&display=swap" rel="stylesheet">
     
     <!-- Styles -->
     <link rel="stylesheet" href="style.css">
@@ -32,7 +32,7 @@
     <!-- Navigation -->
     <nav>
         <div class="logo">
-            <h2 id="nav-logo" style="letter-spacing: 2px;">SNAPLY</h2>
+            <h2 id="nav-logo" style="letter-spacing: 2px;"><span class="brand-font">SNAPLY</span></h2>
         </div>
         <div class="nav-links">
             <a href="#features">Features</a>
@@ -41,6 +41,9 @@
             <a href="#about">About</a>
             <a href="#contact">Contact</a>
         </div>
+        <button id="menu-toggle" class="mobile-menu-btn" aria-label="Toggle Menu">
+            <i class="bi bi-list"></i>
+        </button>
         <button id="theme-toggle" class="theme-btn" aria-label="Toggle Light/Dark Mode">
             <i class="bi bi-sun"></i>
         </button>
@@ -127,23 +130,28 @@
             
             <div class="form-row">
                 <div class="form-group">
-                    <label for="name">Name</label>
                     <input type="text" id="name" name="name" required placeholder=" ">
+                    <label for="name">Name</label>
                 </div>
                 <div class="form-group">
-                    <label for="email">Email</label>
                     <input type="email" id="email" name="email" required placeholder=" ">
+                    <label for="email">Email</label>
                 </div>
             </div>
 
             <div class="form-group">
-                <label for="website">Company Website</label>
+                <input type="tel" id="phone" name="phone" required placeholder=" ">
+                <label for="phone">Phone Number</label>
+            </div>
+
+            <div class="form-group">
                 <input type="url" id="website" name="website" placeholder=" ">
+                <label for="website">Company Website</label>
             </div>
             
             <div class="form-group">
-                <label for="social">Social Link</label>
                 <input type="text" id="social" name="social" placeholder=" ">
+                <label for="social">Social Link</label>
             </div>
             
             <button type="submit" class="cta-btn submit-btn">

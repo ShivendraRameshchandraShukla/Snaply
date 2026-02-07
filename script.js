@@ -4,6 +4,7 @@ document.addEventListener('DOMContentLoaded', () => {
     initScrollAnimation();
     initFormLogic();
     initTheme();
+    initMobileMenu();
 });
 
 // --- Theme Logic ---
@@ -35,6 +36,32 @@ function initTheme() {
     });
 }
 
+// --- Mobile Menu Logic ---
+function initMobileMenu() {
+    const btn = document.getElementById('menu-toggle');
+    const navLinks = document.querySelector('.nav-links');
+    
+    if(!btn || !navLinks) return;
+    
+    btn.addEventListener('click', () => {
+        navLinks.classList.toggle('active');
+        const icon = btn.querySelector('i');
+        if(navLinks.classList.contains('active')) {
+            icon.classList.replace('bi-list', 'bi-x-lg');
+        } else {
+            icon.classList.replace('bi-x-lg', 'bi-list');
+        }
+    });
+
+    // Close when clicking a link
+    navLinks.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', () => {
+            navLinks.classList.remove('active');
+            btn.querySelector('i').classList.replace('bi-x-lg', 'bi-list');
+        });
+    });
+}
+
 // --- Data Fetching ---
 async function fetchData() {
     try {
@@ -43,11 +70,11 @@ async function fetchData() {
         
         // 1. Meta / Nav
         document.title = `${data.brand_name} | ${data.tagline}`;
-        document.getElementById('nav-logo').textContent = data.brand_name;
+        document.getElementById('nav-logo').innerHTML = data.brand_name;
         
         // 2. Hero
         // 2. Hero
-        document.getElementById('hero-tagline').textContent = data.tagline;
+        document.getElementById('hero-tagline').innerHTML = data.tagline;
         
         // --- Hero Animation (Be SEEN / Be HEARD) ---
         const heroHeadline = document.getElementById('hero-headline');
@@ -80,7 +107,7 @@ async function fetchData() {
             });
         }, 2500); // Change every 2.5 seconds
 
-        document.getElementById('hero-intro').textContent = data.intro_text;
+        document.getElementById('hero-intro').innerHTML = data.intro_text;
 
         const ctaContainer = document.getElementById('hero-cta-container');
         // Clear first (in case of re-runs)
@@ -98,8 +125,8 @@ async function fetchData() {
         });
 
         // 3. Features (Categories)
-        document.getElementById('features-title').textContent = data.features_section.title;
-        document.getElementById('features-desc').textContent = data.features_section.description;
+        document.getElementById('features-title').innerHTML = data.features_section.title;
+        document.getElementById('features-desc').innerHTML = data.features_section.description;
 
         const featuresContainer = document.querySelector('.features-container');
         featuresContainer.innerHTML = '';
@@ -119,8 +146,8 @@ async function fetchData() {
         });
 
         // 4. Process
-        document.getElementById('process-title').textContent = data.process_section.title;
-        document.getElementById('process-desc').textContent = data.process_section.description;
+        document.getElementById('process-title').innerHTML = data.process_section.title;
+        document.getElementById('process-desc').innerHTML = data.process_section.description;
         
         const timeline = document.querySelector('.timeline');
         timeline.innerHTML = '';
@@ -138,8 +165,8 @@ async function fetchData() {
         });
 
         // 5. Pricing
-        document.getElementById('pricing-title').textContent = data.pricing_section.title;
-        document.getElementById('pricing-desc').textContent = data.pricing_section.description;
+        document.getElementById('pricing-title').innerHTML = data.pricing_section.title;
+        document.getElementById('pricing-desc').innerHTML = data.pricing_section.description;
         
         const pricingGrid = document.querySelector('.pricing-grid');
         pricingGrid.innerHTML = '';
@@ -149,7 +176,7 @@ async function fetchData() {
             
             card.innerHTML = `
                 <h3>${plan.name}</h3>
-                <div class="pricing-price">₹${plan.price}</div>
+                <div class="pricing-price"><span class="currency-symbol">د.إ</span> ${plan.price.replace(/(\/.*)/, '<span style="font-size:0.5em; font-weight:400;">$1</span>')}</div>
                 <p class="who-for">${plan.who_it_is_for}</p>
                 <ul class="pricing-includes">
                     ${plan.includes.map(inc => `<li>${inc}</li>`).join('')}
@@ -166,29 +193,29 @@ async function fetchData() {
             div.className = 'one-time-card';
             div.innerHTML = `
                 <h4>${svc.service}</h4>
-                <div class="price">₹${svc.price}</div>
+                <div class="price"><span class="currency-symbol">د.إ</span> ${svc.price}</div>
             `;
             oneTimeGrid.appendChild(div);
         });
 
         // 6. About
-        document.getElementById('about-title').textContent = data.about_section.title;
-        document.getElementById('about-text').textContent = data.about_section.about_snaply;
-        document.getElementById('about-promise').textContent = data.about_section.promise;
-        document.getElementById('about-why').textContent = data.about_section.why_snaply;
+        document.getElementById('about-title').innerHTML = data.about_section.title;
+        document.getElementById('about-text').innerHTML = data.about_section.about_snaply;
+        document.getElementById('about-promise').innerHTML = data.about_section.promise;
+        document.getElementById('about-why').innerHTML = data.about_section.why_snaply;
 
         // 7. FAQ
         const faqContainer = document.querySelector('.faq-container');
         faqContainer.innerHTML = '';
-        document.getElementById('faq-title').textContent = data.faq_section.title;
+        document.getElementById('faq-title').innerHTML = data.faq_section.title;
         
         data.faq_section.questions.forEach(qItem => {
             const item = document.createElement('div');
             item.className = 'faq-item';
             item.innerHTML = `
                 <button class="faq-question">
-                    ${qItem.q}
-                    <span>+</span>
+                    <span>${qItem.q}</span>
+                    <span class="faq-icon">+</span>
                 </button>
                 <div class="faq-answer">
                     <p><br>${qItem.a}</p>
@@ -202,7 +229,7 @@ async function fetchData() {
             btn.addEventListener('click', () => {
                 const item = btn.parentElement;
                 item.classList.toggle('active');
-                const span = btn.querySelector('span');
+                const span = btn.querySelector('.faq-icon');
                 span.textContent = item.classList.contains('active') ? '-' : '+';
             });
         });
@@ -215,11 +242,19 @@ async function fetchData() {
             const socialHtml = data.social_links.map(l => `<a href="${l.url}" target="_blank"><i class="bi ${l.icon}"></i></a>`).join('');
 
             footerContent.innerHTML = `
-                <h2 style="font-size:2rem; margin-bottom:10px;">${data.brand_name}</h2>
-                <div class="footer-socials">${socialHtml}</div>
-                <p>${data.footer_section.address}</p>
-                <p>Email: ${data.footer_section.email}</p>
-                <p style="margin-top:20px; font-size:0.9em; color:#444;">${data.footer_section.text}</p>
+                <div class="footer-left">
+                    ${data.footer_section.notes ? `<div class="footer-notes">${data.footer_section.notes.replace(/\n/g, '<br>')}</div>` : ''}
+                </div>
+                <div class="footer-right">
+                    <h2 style="font-size:2rem; margin-bottom:10px;">${data.brand_name}</h2>
+                    <div class="footer-socials">${socialHtml}</div>
+                    <p>${data.footer_section.address}</p>
+                    <p>Email: ${data.footer_section.email}</p>
+                    <div class="footer-links">
+                        ${data.footer_section.links.map(l => `<a href="${l.url}">${l.text}</a>`).join(' | ')}
+                    </div>
+                    <p style="margin-top:20px; font-size:0.9em; color:#444;">${data.footer_section.text}</p>
+                </div>
             `;
 
             // Modal Socials

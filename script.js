@@ -1,5 +1,6 @@
 document.addEventListener('DOMContentLoaded', () => {
     fetchData();
+    initPreloader();
     initThreeJS();
     initScrollAnimation();
     initFormLogic();
@@ -62,6 +63,62 @@ function initMobileMenu() {
     });
 }
 
+// --- Preloader Logic ---
+function initPreloader() {
+    const preloader = document.getElementById('preloader');
+    const textEl = document.getElementById('preloader-text');
+    const heroContent = document.querySelector('.hero-content');
+    
+    // Initial state: Hide hero content so it can reveal later
+    if(heroContent) gsap.set(heroContent.children, { opacity: 0 });
+
+    const timeline = gsap.timeline({
+        onComplete: () => {
+            gsap.to(preloader, {
+                opacity: 0,
+                duration: 0.8,
+                onComplete: () => {
+                    preloader.style.display = 'none';
+                    revealHero();
+                }
+            });
+        }
+    });
+
+    const words = ["STAND OUT", "BE HEARD", "BE SEEN"];
+
+    words.forEach(word => {
+        timeline.to(textEl, {
+            duration: 0.1,
+            opacity: 0,
+            onComplete: () => { textEl.textContent = word; }
+        })
+        .to(textEl, {
+            duration: 0.5,
+            opacity: 1,
+            ease: "power2.out"
+        })
+        .to(textEl, {
+            duration: 0.3,
+            opacity: 0,
+            delay: 0.4,
+            ease: "power2.in"
+        });
+    });
+}
+
+function revealHero() {
+    const elements = document.querySelectorAll('.hero-content .accent-text, .hero-content h1, .hero-content p, .hero-content #hero-cta-container');
+    
+    gsap.to(elements, {
+        opacity: 1,
+        y: 0,
+        duration: 1.5,
+        stagger: 0.3,
+        ease: "power3.out"
+    });
+}
+
 // --- Data Fetching ---
 async function fetchData() {
     try {
@@ -69,7 +126,9 @@ async function fetchData() {
         const data = await response.json();
         
         // 1. Meta / Nav
-        document.title = `${data.brand_name} | ${data.tagline}`;
+        const brandNameText = data.brand_name.replace(/<[^>]*>?/gm, '');
+        const taglineText = data.tagline.replace(/<[^>]*>?/gm, '');
+        document.title = `${brandNameText} | ${taglineText}`;
         document.getElementById('nav-logo').innerHTML = data.brand_name;
         
         // 2. Hero

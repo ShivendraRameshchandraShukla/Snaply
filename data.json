@@ -85,7 +85,7 @@
         "monthly_plans": [
             {
                 "name": "STAND OUT",
-                "price": "35,000/month",
+                "price": "3,000/month",
                 "who_it_is_for": "Small businesses or startups starting their digital marketing journey.",
                 "includes": [
                     "Google Ads Management: Setup and management (up to 2 campaigns)",
@@ -97,7 +97,7 @@
             },
             {
                 "name": "BE HEARD",
-                "price": "75,000/month",
+                "price": "5,000/month",
                 "who_it_is_for": "Mid-sized businesses aiming to enhance online visibility.",
                 "includes": [
                     "Google Ads Management: Up to 5 campaigns, including A/B testing",
@@ -110,7 +110,7 @@
             },
             {
                 "name": "BE SEEN",
-                "price": "1,55,000/month",
+                "price": "7,000/month",
                 "who_it_is_for": "Larger businesses focusing on significant growth.",
                 "includes": [
                     "Comprehensive Google Ads Management: Unlimited campaigns and detailed budget optimization",

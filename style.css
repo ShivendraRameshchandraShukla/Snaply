@@ -468,7 +468,7 @@ body.light-mode #hero-intro {
 .hero-content p,
 .hero-content #hero-cta-container {
     opacity: 0; /* Initially hidden */
-    animation: sandSpread 2s cubic-bezier(0.2, 1, 0.3, 1) forwards;
+    /* animation: sandSpread 2s cubic-bezier(0.2, 1, 0.3, 1) forwards; */
 }
 
 /* Staggered Delays */
@@ -1024,6 +1024,29 @@ footer {
     align-items: center;
     z-index: 2000;
     backdrop-filter: blur(10px);
+}
+
+/* --- Preloader --- */
+#preloader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #000;
+    z-index: 9999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#preloader-text {
+    color: #fff; /* or var(--accent-color) */
+    font-family: var(--font-heading);
+    font-size: 3rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2px;
 }
 
 .modal-content {

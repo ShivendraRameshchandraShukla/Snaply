@@ -251,7 +251,7 @@ async function fetchData() {
             const div = document.createElement('div');
             div.className = 'one-time-card';
             div.innerHTML = `
-                <h4>${svc.service}</h4>
+                <h4>${svc.name}</h4>
                 <div class="price"><span class="currency-symbol">د.إ</span> ${svc.price}</div>
             `;
             oneTimeGrid.appendChild(div);
@@ -496,41 +496,49 @@ function initScrollAnimation() {
     });
 
     // Reveal Sections on Scroll
+    // Reveal Sections on Scroll
     const sections = document.querySelectorAll('section');
     sections.forEach(section => {
-        // Animate the Title and Content separately
-        const title = section.querySelector('h2');
-        const content = Array.from(section.children).slice(1); // All children except H2
-
-        if(title) {
-            gsap.from(title, {
+        // ... existing reveal logic if any, or just new logic ...
+        gsap.fromTo(section.children, 
+            { y: 50, opacity: 0 },
+            {
+                y: 0,
+                opacity: 1,
+                duration: 1,
+                stagger: 0.2,
                 scrollTrigger: {
                     trigger: section,
-                    start: 'top 80%',
-                    toggleActions: 'play none none reverse'
-                },
-                y: 50,
-                opacity: 0,
-                duration: 1,
-                ease: 'power3.out'
-            });
-        }
-
-        if(content.length > 0) {
-            gsap.from(content, {
-                scrollTrigger: {
-                    trigger: section,
-                    start: 'top 75%',
-                    toggleActions: 'play none none reverse'
-                },
-                y: 50,
-                opacity: 0,
-                duration: 1,
-                stagger: 0.1,
-                ease: 'power3.out'
-            });
-        }
+                    start: "top 80%", // Trigger when top of section hits 80% viewport height
+                    toggleActions: "play none none reverse"
+                }
+            }
+        );
     });
+
+    // Nav Scroll Spy (Highlight Active Link)
+    const navLinks = document.querySelectorAll('.nav-links a');
+    sections.forEach(section => {
+        ScrollTrigger.create({
+            trigger: section,
+            start: "top center",
+            end: "bottom center",
+            onEnter: () => setActiveNav(section.id),
+            onEnterBack: () => setActiveNav(section.id)
+        });
+    });
+
+    function setActiveNav(id) {
+        navLinks.forEach(link => {
+            link.style.color = ''; // Reset
+            link.style.fontWeight = '';
+            if(link.getAttribute('href') === `#${id}`) {
+                link.style.color = 'var(--accent-color)';
+                link.style.fontWeight = '700';
+            }
+        });
+    }
+
 }
 
 // --- Form Logic ---

@@ -29,6 +29,9 @@
     --font-body: 'Inter', sans-serif;
     --font-nav: 'Dosis', sans-serif;
     --font-desc: 'Crimson Pro', serif;
+    
+    --orb-1-bg: radial-gradient(circle, #800020, transparent 70%); /* var(--accent-color) hardcoded here to avoid circular depends if we change accent later, or just use variable */
+    --orb-3-bg: radial-gradient(circle, rgba(160, 26, 49, 0.2), transparent 60%);
 }
 
 body.light-mode {
@@ -42,8 +45,10 @@ body.light-mode {
     --glass-border: rgba(0, 0, 0, 0.08);
     --nav-bg: rgba(255, 255, 255, 0.85);
     
-    --hero-bg: radial-gradient(circle at 50% 50%, #fff0f5 0%, #f8f9fa 70%);
-    --orb-2-color: #e6e6ff; /* Lighter/Pastel Violet/Blue */
+    --hero-bg: radial-gradient(circle at 50% 50%, #ffffff 0%, #f8f9fa 70%); /* Neutral white/gray */
+    --orb-2-color: rgba(0,0,0,0); /* Transparent - Remove blue orb */
+    --orb-1-bg: none;
+    --orb-3-bg: none;
     
     --card-bg: linear-gradient(180deg, #ffffff 0%, #f0f0f0 100%);
     --card-hover-bg: linear-gradient(180deg, #fff5f7 0%, #ffffff 100%);
@@ -60,7 +65,6 @@ body.light-mode {
 }
 
 /* --- Footer Split Layout --- */
-/* --- Footer Split Layout --- */
 .footer-content {
     display: flex;
     flex-direction: row; /* Strict row */
@@ -71,6 +75,15 @@ body.light-mode {
     max-width: 1400px;
     margin: 0 auto;
     padding: 0 5%;
+}
+
+.about-card h3 {
+    font-family: 'Cuprum', sans-serif;
+    font-weight: 700;
+    font-style: italic;
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+    color: var(--text-primary);
 }
 
 .footer-left {
@@ -153,12 +166,22 @@ body {
     animation: drift 20s infinite alternate ease-in-out;
 }
 
+    --orb-1-bg: radial-gradient(circle, var(--accent-color), transparent 70%);
+    --orb-3-bg: radial-gradient(circle, rgba(160, 26, 49, 0.2), transparent 60%);
+}
+
+body.light-mode {
+    /* ... existing light mode vars ... */
+    --orb-1-bg: none;
+    --orb-3-bg: none;
+}
+
 .orb-1 {
     top: -10%;
     left: -10%;
     width: 60vw;
     height: 60vw;
-    background: radial-gradient(circle, var(--accent-color), transparent 70%);
+    background: var(--orb-1-bg);
     opacity: 0.2; /* Reduced intensity */
     animation-duration: 25s;
 }
@@ -178,7 +201,7 @@ body {
     left: 40%;
     width: 40vw;
     height: 40vw;
-    background: radial-gradient(circle, rgba(160, 26, 49, 0.2), transparent 60%);
+    background: var(--orb-3-bg);
     animation-duration: 35s;
     opacity: 0.2;
 }
@@ -199,8 +222,13 @@ body {
     100% { transform: translate(50px, 30px) scale(1.1); }
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1, h2 {
     font-family: var(--font-heading);
+    font-weight: 700;
+}
+
+h3, h4, h5, h6 {
+    font-family: var(--font-desc);
     font-weight: 700;
 }
 
@@ -538,7 +566,7 @@ section h2 {
     max-width: 600px;
     margin: 0 auto 70px;
     font-size: 1.3rem;
-    font-style: italic;
+    font-weight: 400;
 }
 
 /* --- Features (Categories) --- */
@@ -589,6 +617,9 @@ section h2 {
     padding-bottom: 20px;
     margin-bottom: 25px;
     font-size: 1.5rem;
+    font-family: 'Cuprum', sans-serif;
+    font-weight: 700;
+    font-style: italic;
 }
 
 .feature-list {
@@ -710,9 +741,12 @@ section h2 {
 }
 
 .pricing-card h3 {
+    font-family: 'Cuprum', sans-serif;
     font-size: 1.8rem;
     margin-bottom: 10px;
     color: #800000; /* Maroon */
+    font-weight: 555;
+    font-style: italic;
 }
 
 .pricing-price {
@@ -727,6 +761,7 @@ section h2 {
     display: flex;
     justify-content: center;
     gap: 5px;
+    white-space: nowrap; /* Keep Custom Quote on one line */
 }
 
 .who-for {

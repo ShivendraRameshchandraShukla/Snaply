@@ -1,10 +1,10 @@
 document.addEventListener('DOMContentLoaded', () => {
+    initTheme();
     fetchData();
     initPreloader();
     initThreeJS();
-    initScrollAnimation();
+    // initScrollAnimation(); // Moved to inside fetchData() to ensure content is loaded
     initFormLogic();
-    initTheme();
     initMobileMenu();
 });
 
@@ -129,7 +129,7 @@ async function fetchData() {
         const brandNameText = data.brand_name.replace(/<[^>]*>?/gm, '');
         const taglineText = data.tagline.replace(/<[^>]*>?/gm, '');
         document.title = `${brandNameText} | ${taglineText}`;
-        document.getElementById('nav-logo').innerHTML = data.brand_name;
+        document.getElementById('nav-logo').innerHTML = `<a href="#hero" style="text-decoration:none; color:inherit;">${data.brand_name}</a>`;
         
         // 2. Hero
         // 2. Hero
@@ -228,34 +228,92 @@ async function fetchData() {
         document.getElementById('pricing-desc').innerHTML = data.pricing_section.description;
         
         const pricingGrid = document.querySelector('.pricing-grid');
-        pricingGrid.innerHTML = '';
-        data.pricing_section.monthly_plans.forEach(plan => {
-            const card = document.createElement('div');
-            card.className = 'pricing-card';
-            
-            card.innerHTML = `
-                <h3>${plan.name}</h3>
-                <div class="pricing-price"><span class="currency-symbol">د.إ</span> ${plan.price.replace(/(\/.*)/, '<span style="font-size:0.5em; font-weight:400;">$1</span>')}</div>
-                <p class="who-for">${plan.who_it_is_for}</p>
-                <ul class="pricing-includes">
-                    ${plan.includes.map(inc => `<li>${inc}</li>`).join('')}
-                </ul>
-                <a href="#contact" class="cta-btn" style="text-align:center;">Select Plan</a>
-            `;
-            pricingGrid.appendChild(card);
-        });
-
         const oneTimeGrid = document.querySelector('.one-time-grid');
-        oneTimeGrid.innerHTML = '';
-        data.pricing_section.one_time_services.forEach(svc => {
-            const div = document.createElement('div');
-            div.className = 'one-time-card';
-            div.innerHTML = `
-                <h4>${svc.name}</h4>
-                <div class="price"><span class="currency-symbol">د.إ</span> ${svc.price}</div>
-            `;
-            oneTimeGrid.appendChild(div);
-        });
+        const toggle = document.getElementById('currency-toggle');
+        const labelAED = document.getElementById('label-aed');
+        const labelINR = document.getElementById('label-inr');
+
+        const renderPricing = (currency) => {
+            // Render Monthly Plans
+            pricingGrid.innerHTML = '';
+            data.pricing_section.monthly_plans.forEach(plan => {
+                const card = document.createElement('div');
+                card.className = 'pricing-card';
+                
+                let priceHtml = '';
+                let priceVal = plan.price[currency];
+                
+                if (priceVal.toLowerCase().includes('custom')) {
+                     // Custom quote handling
+                     if (currency === 'aed') {
+                         priceHtml = `<span style="font-size: 1.2rem; font-weight:700;">AED</span> <span style="font-size: 1.6rem; white-space: normal;">${priceVal}</span>`;
+                     } else {
+                         // Rupee Icon
+                         priceHtml = `<i class="bi bi-currency-rupee" style="font-size: 1.6rem;"></i> <span style="font-size: 1.6rem; white-space: normal;">${priceVal}</span>`;
+                     }
+                } else {
+                    // Standard Price
+                    if (currency === 'aed') {
+                        priceHtml = `<span style="font-size: 1.2rem; font-weight:700; margin-right:5px;">AED</span> ${priceVal}<span style="font-size:0.5em; font-weight:400;">/month</span>`;
+                    } else {
+                         priceHtml = `<i class="bi bi-currency-rupee"></i> ${priceVal}<span style="font-size:0.5em; font-weight:400;">/month</span>`;
+                    }
+                }
+
+                card.innerHTML = `
+                    <h3>${plan.name}</h3>
+                    <div class="pricing-price">${priceHtml}</div>
+                    <p class="who-for">${plan.who_it_is_for}</p>
+                    <ul class="pricing-includes">
+                        ${plan.includes.map(inc => `<li>${inc}</li>`).join('')}
+                    </ul>
+                    <a href="#contact" class="cta-btn" style="text-align:center;">Select Plan</a>
+                `;
+                pricingGrid.appendChild(card);
+            });
+
+            // Render One-Time Services
+            oneTimeGrid.innerHTML = '';
+            data.pricing_section.one_time_services.forEach(svc => {
+                const div = document.createElement('div');
+                div.className = 'one-time-card';
+                
+                let otPriceHtml = '';
+                let otPriceVal = svc.price[currency];
+
+                if (currency === 'aed') {
+                    otPriceHtml = `<span style="font-weight:700; font-size: 0.9em;">AED</span> ${otPriceVal}`;
+                } else {
+                    otPriceHtml = `<i class="bi bi-currency-rupee"></i> ${otPriceVal}`;
+                }
+
+                div.innerHTML = `
+                    <h4>${svc.name}</h4>
+                    <div class="price">${otPriceHtml}</div>
+                `;
+                oneTimeGrid.appendChild(div);
+            });
+        };
+
+        // Initial Render (AED)
+        renderPricing('aed');
+
+        // Toggle Listener
+        if(toggle) {
+            toggle.addEventListener('change', () => {
+                const cur = toggle.checked ? 'inr' : 'aed';
+                renderPricing(cur);
+                
+                // Update Labels
+                if(cur === 'inr') {
+                   labelINR.classList.add('active');
+                   labelAED.classList.remove('active');
+                } else {
+                   labelAED.classList.add('active');
+                   labelINR.classList.remove('active');
+                }
+            });
+        }
 
         // 6. About
         document.getElementById('about-title').innerHTML = data.about_section.title;
@@ -300,6 +358,13 @@ async function fetchData() {
             // Socials HTML
             const socialHtml = data.social_links.map(l => `<a href="${l.url}" target="_blank"><i class="bi ${l.icon}"></i></a>`).join('');
 
+            let contactHtml = '';
+            if (data.footer_section.contact_info) {
+                contactHtml = data.footer_section.contact_info.map(c => 
+                    `<p>${c.label}: <a href="tel:${c.value.replace(/\s/g,'')}" style="color:inherit; text-decoration:none;">${c.value}</a></p>`
+                ).join('');
+            }
+
             footerContent.innerHTML = `
                 <div class="footer-left">
                     ${data.footer_section.notes ? `<div class="footer-notes">${data.footer_section.notes.replace(/\n/g, '<br>')}</div>` : ''}
@@ -307,8 +372,9 @@ async function fetchData() {
                 <div class="footer-right">
                     <h2 style="font-size:2rem; margin-bottom:10px;">${data.brand_name}</h2>
                     <div class="footer-socials">${socialHtml}</div>
-                    <p>${data.footer_section.address}</p>
-                    <p>Email: ${data.footer_section.email}</p>
+                    <p style="font-weight:700; margin-bottom: 5px;">${data.footer_section.address}</p>
+                    ${contactHtml}
+                    <p style="margin-top: 10px;">Email: <a href="mailto:${data.footer_section.email}" style="color: inherit; text-decoration: none;">${data.footer_section.email}</a></p>
                     <div class="footer-links">
                         ${data.footer_section.links.map(l => `<a href="${l.url}">${l.text}</a>`).join(' | ')}
                     </div>
@@ -319,6 +385,10 @@ async function fetchData() {
             // Modal Socials
             document.getElementById('modal-socials').innerHTML = socialHtml;
         }
+        
+        // Initialize Scroll Animations AFTER content is loaded
+        initScrollAnimation();
+
 
     } catch (error) {
         console.error('Error fetching data:', error);
@@ -379,6 +449,27 @@ function initThreeJS() {
         mouseX = (event.clientX / window.innerWidth) * 2 - 1;
         mouseY = -(event.clientY / window.innerHeight) * 2 + 1;
     });
+
+    // Theme Toggle Listener for Mesh Opacity
+    const updateMeshOpacity = () => {
+        if (document.body.classList.contains('light-mode')) {
+            material.opacity = 0.4; // lighter intensity
+        } else {
+            material.opacity = 0.9; // Standard intensity for dark mode
+        }
+    };
+    
+    // Initial check
+    updateMeshOpacity();
+
+    // Listen to theme toggle button
+    const themeBtn = document.getElementById('theme-toggle');
+    if(themeBtn) {
+        themeBtn.addEventListener('click', () => {
+            // Small delay to allow class toggle to propagate if needed, though usually synchronous
+            setTimeout(updateMeshOpacity, 50);
+        });
+    }
 
     // Store original positions for return-to-base logic
     const originalPositions = posArray.slice(); // Clone Float32Array
@@ -516,28 +607,7 @@ function initScrollAnimation() {
         );
     });
 
-    // Nav Scroll Spy (Highlight Active Link)
-    const navLinks = document.querySelectorAll('.nav-links a');
-    sections.forEach(section => {
-        ScrollTrigger.create({
-            trigger: section,
-            start: "top center",
-            end: "bottom center",
-            onEnter: () => setActiveNav(section.id),
-            onEnterBack: () => setActiveNav(section.id)
-        });
-    });
 
-    function setActiveNav(id) {
-        navLinks.forEach(link => {
-            link.style.color = ''; // Reset
-            link.style.fontWeight = '';
-            if(link.getAttribute('href') === `#${id}`) {
-                link.style.color = 'var(--accent-color)';
-                link.style.fontWeight = '700';
-            }
-        });
-    }
 
 }
 

@@ -1,6 +1,6 @@
 {
     "brand_name": "<span class='brand-font'>SNAPLY</span>",
-    "tagline": "<span class='brand-font'>SNAPLY</span>.",
+    "tagline": "<span class='brand-font'>STAND OUT</span>",
     "intro_text": "At <span class='brand-font'>SNAPLY</span>, we craft customized digital marketing strategies that amplify your brand's presence. Our expert team specializes in Google Ads, Facebook advertising, SEO, and social media management, ensuring you connect with your audience effectively. Let us help you stand out in the digital landscape and achieve lasting success.",
     "cta_buttons": [
         "Start Growing With US!"
@@ -85,7 +85,7 @@
         "monthly_plans": [
             {
                 "name": "STAND OUT",
-                "price": "3,000/month",
+                "price": { "aed": "3,000", "inr": "25,000" },
                 "who_it_is_for": "Small businesses or startups starting their digital marketing journey.",
                 "includes": [
                     "Google Ads Management: Setup and management (up to 2 campaigns)",
@@ -97,7 +97,7 @@
             },
             {
                 "name": "BE HEARD",
-                "price": "5,000/month",
+                "price": { "aed": "5,000", "inr": "45,000" },
                 "who_it_is_for": "Mid-sized businesses aiming to enhance online visibility.",
                 "includes": [
                     "Google Ads Management: Up to 5 campaigns, including A/B testing",
@@ -110,7 +110,7 @@
             },
             {
                 "name": "BE SEEN",
-                "price": "7,000/month",
+                "price": { "aed": "7,000", "inr": "65,000" },
                 "who_it_is_for": "Larger businesses focusing on significant growth.",
                 "includes": [
                     "Comprehensive Google Ads Management: Unlimited campaigns and detailed budget optimization",
@@ -123,7 +123,7 @@
             },
             {
                 "name": "MAKE YOUR MARK",
-                "price": "Custom quote",
+                "price": { "aed": "Custom quote", "inr": "Custom quote" },
                 "who_it_is_for": "Businesses with unique marketing needs.",
                 "includes": [
                     "Flexible combinations of services like SEO, Google Ads, and strategic social media management.",
@@ -133,12 +133,11 @@
             }
         ],
         "one_time_services": [
-            { "name": "Initial Strategy", "price": "300" },
-            { "name": "SEO Audit", "price": "1,500" },
-            { "name": "Ad Campaign", "price": "1,000" },
-            { "name": "Social Optimization", "price": "500" },
-            { "name": "Website Optimization", "price": "1,000" },
-            { "name": "Competitor Analysis Report", "price": "750" }
+            { "name": "Initial Strategy Consultation", "price": { "aed": "300", "inr": "3,000" } },
+            { "name": "SEO Site Audit", "price": { "aed": "1,500", "inr": "24,600" } },
+            { "name": "Ad Campaign Audit", "price": { "aed": "1,000", "inr": "16,500" } },
+            { "name": "Social Media Optimization", "price": { "aed": "500", "inr": "10,000" } },
+            { "name": "Competitor Analysis Report", "price": { "aed": "750", "inr": "12,000" } }
         ]
     },
     "about_section": {
@@ -180,8 +179,12 @@
     ],
     "footer_section": {
         "text": "© 2026 <span class='brand-font'>SNAPLY</span>. All rights reserved.",
-        "address": "123 Premium Tower, Fintech District, New York, NY 10001",
-        "email": "growth@snaply.com",
+        "address": "India | UAE",
+        "contact_info": [
+            { "label": "India", "value": "+91 9615151715" },
+            { "label": "UAE", "value": "+971 501841482" }
+        ],
+        "email": "hello@snaply.co.in",
         "links": [
             { "text": "Privacy Policy", "url": "#" },
             { "text": "Terms of Service", "url": "#" }

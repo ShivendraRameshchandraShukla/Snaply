@@ -10,7 +10,7 @@
     --nav-bg: rgba(5, 5, 5, 0.85);
     
     --hero-bg: radial-gradient(circle at 50% 50%, #150005 0%, #050505 70%);
-    --orb-2-color: #0a0a2a; /* Deep Violet/Blue */
+    --orb-2-color: rgba(10, 10, 42, 0.4); /* Deep Violet/Blue - Reduced Intensity */
     
     --card-bg: linear-gradient(180deg, rgba(20, 20, 20, 0.6) 0%, rgba(10, 10, 10, 0.8) 100%);
     --card-hover-bg: linear-gradient(180deg, rgba(30, 10, 15, 0.7) 0%, rgba(10, 10, 10, 0.9) 100%);
@@ -30,8 +30,8 @@
     --font-nav: 'Dosis', sans-serif;
     --font-desc: 'Crimson Pro', serif;
     
-    --orb-1-bg: radial-gradient(circle, #800020, transparent 70%); /* var(--accent-color) hardcoded here to avoid circular depends if we change accent later, or just use variable */
-    --orb-3-bg: radial-gradient(circle, rgba(160, 26, 49, 0.2), transparent 60%);
+    --orb-1-bg: radial-gradient(circle, rgba(128, 0, 32, 0.4), transparent 70%); /* Reduced Intensity */
+    --orb-3-bg: radial-gradient(circle, rgba(160, 26, 49, 0.15), transparent 60%); /* Reduced Intensity */
 }
 
 body.light-mode {
@@ -166,9 +166,7 @@ body {
     animation: drift 20s infinite alternate ease-in-out;
 }
 
-    --orb-1-bg: radial-gradient(circle, var(--accent-color), transparent 70%);
-    --orb-3-bg: radial-gradient(circle, rgba(160, 26, 49, 0.2), transparent 60%);
-}
+
 
 body.light-mode {
     /* ... existing light mode vars ... */
@@ -433,14 +431,19 @@ header#hero {
 
 .accent-text {
     font-family: var(--font-desc);
-    color: var(--accent-color);
+    color: #ffffff; /* Default to white for dark mode */
     text-transform: uppercase;
-    letter-spacing: 4px;
-    font-weight: 700;
-    font-size: 1.2rem;
+    letter-spacing: 5px;
+    font-weight: 900; /* Max bold */
+    font-size: 2rem; /* Significantly larger */
     margin-bottom: 25px;
     display: block;
-    text-shadow: 0 0 15px rgba(128, 0, 32, 0.5);
+    text-shadow: 0 0 25px rgba(255, 255, 255, 0.6); /* Stronger glow */
+}
+
+body.light-mode .accent-text {
+    color: #000000; /* Black for light mode */
+    text-shadow: 0 0 20px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
 }
 
 .hero-content h1 {
@@ -468,6 +471,18 @@ body.light-mode #hero-intro {
     text-shadow: none; /* Remove shadow in light mode for better legibility */
     color: #333; /* Ensure contrast */
     font-weight: 500;
+}
+
+#hero-intro .brand-font {
+    color: #ffffff;
+    font-size: 1.15em;
+    font-weight: 800;
+    text-shadow: 0 0 15px rgba(255, 255, 255, 0.2);
+}
+
+body.light-mode #hero-intro .brand-font {
+    color: #000000;
+    text-shadow: none;
 }
 
 #hero-cta-container {
@@ -544,7 +559,7 @@ body.light-mode #hero-intro {
 
 /* --- Sections Common --- */
 section {
-    padding: 140px 5%;
+    padding: 60px 5%;
     max-width: 1400px;
     margin: 0 auto;
 }
@@ -564,7 +579,7 @@ section h2 {
     text-align: center;
     color: var(--text-secondary);
     max-width: 600px;
-    margin: 0 auto 70px;
+    margin: 0 auto 40px;
     font-size: 1.3rem;
     font-weight: 400;
 }
@@ -665,7 +680,7 @@ section h2 {
 }
 
 .timeline-item {
-    margin-bottom: 70px;
+    margin-bottom: 40px;
     position: relative;
     width: 50%;
     padding: 0 60px; 
@@ -705,6 +720,7 @@ section h2 {
     color: var(--text-primary);
     font-size: 1.6rem;
     margin-bottom: 15px;
+    font-style: italic;
 }
 
 .timeline-content p {
@@ -729,14 +745,16 @@ section h2 {
     display: flex;
     flex-direction: column;
     height: 100%;
-    transition: all 0.4s ease;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     min-width: 0; /* Prevent overflow in grid */
+    position: relative;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
 }
 
 .pricing-card:hover {
-    border-color: var(--accent-color);
-    transform: translateY(-15px);
-    box-shadow: 0 15px 50px rgba(0,0,0,0.6);
+    border-color: var(--glass-border);
+    transform: translateY(-10px) scale(1.02);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.4);
     background: var(--card-hover-bg);
 }
 
@@ -1021,10 +1039,10 @@ section h2 {
 
 /* --- Footer --- */
 footer {
-    padding: 80px 5% 40px;
+    padding: 50px 5% 30px;
     background: var(--footer-bg);
     border-top: 1px solid var(--glass-border);
-    margin-top: 50px;
+    margin-top: 0;
     color: #666;
     text-align: center;
 }
@@ -1136,4 +1154,80 @@ footer {
     .timeline-item { width: 100%; padding-left: 50px; padding-right: 0; text-align: left !important; }
     .timeline-item:nth-child(odd), .timeline-item:nth-child(even) { left: 0; }
     .timeline-item:nth-child(odd) .timeline-dot, .timeline-item:nth-child(even) .timeline-dot { left: 11px; right: auto; }
+}
+
+/* --- Pricing Toggle --- */
+.pricing-controls {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 40px;
+}
+
+.currency-label {
+    font-family: var(--font-body);
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: var(--text-secondary);
+    transition: color 0.3s;
+}
+
+.currency-label.active {
+    color: var(--accent-color);
+}
+
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 34px;
+}
+
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(255, 255, 255, 0.1);
+    transition: .4s;
+    border: 1px solid var(--glass-border);
+    border-radius: 34px;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 26px;
+    width: 26px;
+    left: 4px;
+    bottom: 3px;
+    background-color: var(--text-primary);
+    transition: .4s;
+    border-radius: 50%;
+}
+
+input:checked + .slider {
+    background-color: var(--accent-color);
+}
+
+input:focus + .slider {
+    box-shadow: 0 0 1px var(--accent-color);
+}
+
+input:checked + .slider:before {
+    transform: translateX(26px);
+}
+
+/* Light mode adjustment for toggle track */
+body.light-mode .slider {
+    background-color: rgba(0, 0, 0, 0.1);
 }

@@ -172,10 +172,10 @@
         ]
     },
     "social_links": [
-        { "platform": "Instagram", "url": "#", "icon": "bi-instagram" },
-        { "platform": "Facebook", "url": "#", "icon": "bi-facebook" },
+        { "platform": "Instagram", "url": "https://www.instagram.com/snaplyglobal", "icon": "bi-instagram" },
+        { "platform": "Facebook", "url": "https://www.facebook.com/profile.php?id=61587957412647", "icon": "bi-facebook" },
         { "platform": "X", "url": "#", "icon": "bi-twitter-x" },
-        { "platform": "LinkedIn", "url": "#", "icon": "bi-linkedin" }
+        { "platform": "LinkedIn", "url": "https://www.linkedin.com/company/snaplyglobal", "icon": "bi-linkedin" }
     ],
     "footer_section": {
         "text": "© 2026 <span class='brand-font'>SNAPLY</span>. All rights reserved.",

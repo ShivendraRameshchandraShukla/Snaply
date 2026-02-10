@@ -141,8 +141,11 @@
     <!-- Contact Section -->
     <section id="contact">
         <h2>Start Your Journey</h2>
-        <form class="contact-form" id="enquiry-form" name="contact" method="POST" data-netlify="true" netlify>
-            <input type="hidden" name="form-name" value="contact" />
+        <form class="contact-form" id="enquiry-form" name="contact" method="POST">
+            <!-- FormSubmit Configuration -->
+            <input type="hidden" name="_subject" value="New Lead Contact">
+            <input type="hidden" name="_captcha" value="false">
+            <input type="hidden" name="_template" value="table">
             
             <div class="form-row">
                 <div class="form-group">

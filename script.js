@@ -628,11 +628,14 @@ function initFormLogic() {
         // Create FormData object
         const formData = new FormData(form);
 
-        // Fetch API for Netlify
-        fetch('/', {
+        // FormSubmit.co AJAX Submission
+        fetch('https://formsubmit.co/ajax/hello@snaply.co.in', {
             method: 'POST',
-            headers: { "Content-Type": "application/x-www-form-urlencoded" },
-            body: new URLSearchParams(formData).toString()
+            headers: { 
+                "Content-Type": "application/json",
+                "Accept": "application/json"
+            },
+            body: JSON.stringify(Object.fromEntries(formData))
         })
         .then(() => {
             // Success

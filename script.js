@@ -14,10 +14,15 @@ function initTheme() {
     const icon = toggleBtn.querySelector('i');
     const body = document.body;
     
-    // Check saved preference
+    // Check saved preference - Default to 'light' if null
     const savedTheme = localStorage.getItem('theme');
     
-    if (savedTheme === 'light') {
+    // different logic: if saved is 'dark', use dark. Otherwise (null or 'light') use light.
+    if (savedTheme === 'dark') {
+        body.classList.remove('light-mode');
+        icon.classList.replace('bi-moon', 'bi-sun');
+    } else {
+        // Default is Light
         body.classList.add('light-mode');
         icon.classList.replace('bi-sun', 'bi-moon');
     }

@@ -721,6 +721,8 @@ section h2 {
     font-size: 1.6rem;
     margin-bottom: 15px;
     font-style: italic;
+    font-family: 'Cuprum', sans-serif;
+    font-weight: 700;
 }
 
 .timeline-content p {

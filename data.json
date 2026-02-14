@@ -147,7 +147,7 @@
         "why_snaply": "<span class='brand-font'>Snaply</span> is more than a service; we're your partner in making things happen. We're here to help you reach your people, build a loyal following, and bring your vision to life. With <span class='brand-font'>Snaply</span>, marketing is no longer something 'extra'-it's your secret to building a brand that matters."
     },
     "faq_section": {
-        "title": "SNAPLY Answers to Your Most Common Questions",
+        "title": "<span class='brand-font'>SNAPLY</span> Answers to Your Most Common Questions",
         "questions": [
             {
                 "q": "Do I need to give <span class='brand-font'>Snaply</span> access to my social media accounts and email passwords?",
@@ -174,7 +174,7 @@
     "social_links": [
         { "platform": "Instagram", "url": "https://www.instagram.com/snaplyglobal", "icon": "bi-instagram" },
         { "platform": "Facebook", "url": "https://www.facebook.com/profile.php?id=61587957412647", "icon": "bi-facebook" },
-        { "platform": "X", "url": "#", "icon": "bi-twitter-x" },
+        { "platform": "WhatsApp", "url": "#", "icon": "bi-whatsapp" },
         { "platform": "LinkedIn", "url": "https://www.linkedin.com/company/snaplyglobal", "icon": "bi-linkedin" }
     ],
     "footer_section": {

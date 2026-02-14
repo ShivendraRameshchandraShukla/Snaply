@@ -174,7 +174,7 @@
     "social_links": [
         { "platform": "Instagram", "url": "https://www.instagram.com/snaplyglobal", "icon": "bi-instagram" },
         { "platform": "Facebook", "url": "https://www.facebook.com/profile.php?id=61587957412647", "icon": "bi-facebook" },
-        { "platform": "WhatsApp", "url": "#", "icon": "bi-whatsapp" },
+        { "platform": "WhatsApp", "url": "https://wa.me/919615151715", "icon": "bi-whatsapp" },
         { "platform": "LinkedIn", "url": "https://www.linkedin.com/company/snaplyglobal", "icon": "bi-linkedin" }
     ],
     "footer_section": {

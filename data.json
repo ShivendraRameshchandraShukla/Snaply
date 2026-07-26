@@ -99,7 +99,7 @@
             },
             {
                 "name": "BE HEARD",
-                "price": { "aed": "4,500", "inr": "40,000" },
+                "price": { "aed": "5,000", "inr": "45,000" },
                 "offer_percentage": "15",
                 "who_it_is_for": "Mid-sized businesses aiming to enhance online visibility.",
                 "includes": [
@@ -113,7 +113,7 @@
             },
             {
                 "name": "BE SEEN",
-                "price": { "aed": "6,500", "inr": "55,000" },
+                "price": { "aed": "7,500", "inr": "70,000" },
                 "offer_percentage": "20",
                 "who_it_is_for": "Larger businesses focusing on significant growth.",
                 "includes": [

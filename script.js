@@ -258,16 +258,28 @@ async function fetchData() {
                      }
                 } else {
                     // Standard Price
-                    if (currency === 'aed') {
-                        priceHtml = `<span style="font-size: 1.2rem; font-weight:700; margin-right:5px;">AED</span> ${priceVal}<span style="font-size:0.5em; font-weight:400;">/month</span>`;
+                    const symbol = currency === 'aed'
+                        ? `<span style="font-size: 1.2rem; font-weight:700; margin-right:5px;">AED</span>`
+                        : `<i class="bi bi-currency-rupee"></i>`;
+                    const pct = parseFloat(plan.offer_percentage);
+                    const numericPrice = parseFloat(priceVal.replace(/,/g, ''));
+
+                    if (pct > 0 && !isNaN(numericPrice)) {
+                        const discounted = Math.round(numericPrice * (1 - pct / 100)).toLocaleString('en-US');
+                        priceHtml = `
+                            <div class="price-original">${symbol} ${priceVal} <span class="offer-badge">${pct}% OFF</span></div>
+                            <div class="price-discount-line"></div>
+                            <div class="price-final">${symbol} ${discounted}<span style="font-size:0.5em; font-weight:400;">/month</span></div>
+                        `;
                     } else {
-                         priceHtml = `<i class="bi bi-currency-rupee"></i> ${priceVal}<span style="font-size:0.5em; font-weight:400;">/month</span>`;
+                        priceHtml = `${symbol} ${priceVal}<span style="font-size:0.5em; font-weight:400;">/month</span>`;
                     }
                 }
 
+                const hasOffer = parseFloat(plan.offer_percentage) > 0;
                 card.innerHTML = `
                     <h3>${plan.name}</h3>
-                    <div class="pricing-price">${priceHtml}</div>
+                    <div class="pricing-price${hasOffer ? ' has-offer' : ''}">${priceHtml}</div>
                     <p class="who-for">${plan.who_it_is_for}</p>
                     <ul class="pricing-includes">
                         ${plan.includes.map(inc => `<li>${inc}</li>`).join('')}

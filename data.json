@@ -87,6 +87,7 @@
             {
                 "name": "STAND OUT",
                 "price": { "aed": "2,500", "inr": "25,000" },
+                "offer_percentage": "",
                 "who_it_is_for": "Small businesses or startups starting their digital marketing journey.",
                 "includes": [
                     "Google Ads Management: Setup and management (up to 2 campaigns)",
@@ -99,6 +100,7 @@
             {
                 "name": "BE HEARD",
                 "price": { "aed": "4,500", "inr": "40,000" },
+                "offer_percentage": "",
                 "who_it_is_for": "Mid-sized businesses aiming to enhance online visibility.",
                 "includes": [
                     "Google Ads Management: Up to 5 campaigns, including A/B testing",
@@ -112,6 +114,7 @@
             {
                 "name": "BE SEEN",
                 "price": { "aed": "6,500", "inr": "55,000" },
+                "offer_percentage": "",
                 "who_it_is_for": "Larger businesses focusing on significant growth.",
                 "includes": [
                     "Comprehensive Google Ads Management: Unlimited campaigns and detailed budget optimization",
